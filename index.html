@@ -1,9 +1,546 @@
 <html>
 <head>
-<meta http-equiv="refresh" content="0;url=https://karstenwinter.github.io" />
 <title>geckoknight.github.io</title>
+<!-- comic css https://codepen.io/chris22smith/pen/MyBBOe/ -->
+<style>
+html, body {
+  margin:0;
+  padding:0;
+}
+.sepia:target img {
+    filter: sepia(1);
+}
+.contrasted-sepia:target img {
+    filter: contrast(1.7) sepia(1);
+}
+.contrast:target img {
+    filter: contrast(1.7);
+}
+
+.grayscale:target img {
+    filter: grayscale(1);
+}
+.blur:target img {
+    filter: blur(2px);
+}
+.drop-shadow:target img {
+    filter: drop-shadow(0px 0px 24px white);
+}
+.hue-rotate:target img {
+    filter: hue-rotate(90deg);
+}
+.saturate:target img {
+    filter: saturate(1.7);
+}
+
+.comic {
+  display:flex;
+  flex-wrap:wrap;
+  font-family: Century Gothic, sans-serif;
+  font-weight: bold;
+  font-size: 16pt;
+  padding:1vmin;
+}
+
+.panel {
+  background-color:#000;
+  text-align: center;
+  border:solid 2px #000;
+  box-shadow:0 6px 6px -6px #000;
+  display:inline-block;
+  flex:1 1;
+  height: 511px; /*this makes a better print layout*/
+  margin:1vmin;
+  overflow:hidden;
+  position:relative;
+  flex-basis: 512px;
+}
+.text {
+  text-align: left;
+  background-color:#fff;
+  border:solid 2px #000;
+  margin:0;
+  padding:3px 10px;
+}
+.top-left {
+  left:-6px;
+  position:absolute;
+  top:-2px;
+  /*transform:skew(-15deg);*/
+}
+.bottom-right {
+  bottom:-2px;
+  position:absolute;
+  right:-6px;
+  /*transform:skew(-15deg);*/
+}
+.speech {
+  background-color:#fff;
+  border:solid 2px #000;
+  border-radius:12px;
+  display:inline-block;
+  margin:.5em;
+  padding:.5em 1em;
+  position:relative;
+}
+.speech:before {
+  border:solid 12px transparent;
+  border-left:solid 12px #000;
+  border-top:solid 12px #000;
+  bottom:-24px;
+  content:"";
+  height:0;
+  left:24px;
+  position:absolute;
+  width:0;
+}
+.speech:after {
+  border:solid 10px transparent;
+  border-left:solid 10px #fff;
+  border-top:solid 10px #fff;
+  bottom:-19px;
+  content:"";
+  height:0;
+  left:27px;
+  position:absolute;
+  width:0;
+}
+.panel:nth-child(1) {
+  flex-basis: 100%;
+  height: 492px;
+}
+.foreword {
+  text-align: left;
+  color: #fff;
+}
+a {
+  color: #fff;
+}
+a:active {
+  color: red;
+}
+
+.print-info, .foreword, .filters, .social-print, .social-web {
+    font-size: 11pt;
+    color: #fff;
+}
+.social-web {
+  display: none;
+}
+
+@media print {
+  .foreword {
+    color: #000;
+  }
+  .panel {
+    background-color: #fff;
+  }
+  .social-print {
+    display: block;
+  }
+  .social-web {
+    display: none;
+  }
+}
+
+</style>
 </head>
-<body style="padding: 4em; color: #fff; background-color: #000;>
-Click <a style="color: red;" href="https://karstenwinter.github.io">here</a> to go to the website.
-</body>
-</html>
+<body>
+
+<div class="sepia" id="sepia">
+<div class="contrasted-sepia" id="contrasted-sepia">
+<div class="contrast" id="contrast">
+<div class="grayscale" id="grayscale">
+<div class="blur" id="blur">
+<div class="drop-shadow" id="drop-shadow">
+<div class="hue-rotate" id="hue-rotate">
+<div class="saturate" id="saturate">
+
+<div class="comic">
+  <div class="panel">
+
+
+  <IMG SRC="img/painting of a small outside jungle cave with caverns , in the style of Jean Giraud moebius_seed_output1.png"ALIGN=LEFT WIDTH=641 HEIGHT=714 BORDER=0><BR>
+
+    <p class="text top-left">
+    The Gecko Knight</p>
+
+    <p class="text bottom-right">
+A short story
+<br/>
+by Karsten Winter
+<br />
+and illustrated by AI
+<br />
+2022
+<br />
+
+<div class="foreword">
+  Dear reader,
+  <br />
+  thanks for picking up this comic book. A lot of effort was put
+into it, the story was formed a long time ago and tried out in
+different mediums until time and tools prove themselves to be
+a good fit to finally tell this story. Inspired by Nausicaa, Hollow
+Knight, the works of Jean “Moebius” Giraud, Fallout, and
+countless other small pieces of joy, here comes to you the
+journey of a curious soul in a vast world, full of wonders.
+Enjoy the trip,<br />
+<div style="text-align: right;">&ndash; Karsten Winter</div>
+  </div>
+
+<div class="social-web">
+https://twitter.com/byKarstenWinter
+<br />
+https://instagram.com/byKarstenWinter
+</div>
+<div class="social-print">
+<a href="https://twitter.com/byKarstenWinter" target="_blank">follow on twitter</a>
+<br />
+<a href="https://instagram.com/byKarstenWinter" target="_blank">follow on instagram</a>
+<br />
+<br />
+</div>
+<div class="print-info">
+You can print this comic (Ctrl+P):
+<br />
+I recommend 65% scaling to get 2 columns on A4.
+</div>
+
+<div class="filters">
+<br />
+Filters (for reading+printing):
+<br/>
+<a href="#">no filter</a>
+<a href="#sepia">sepia</a>
+<a href="#contrasted-sepia">contrasted-sepia</a>
+<a href="#contrast">contrast</a>
+<br/>
+<a href="#grayscale">grayscale</a>
+<a href="#blur">blur</a>
+<a href="#drop-shadow">drop-shadow</a>
+<a href="#hue-rotate">hue-rotate</a>
+<a href="#saturate">saturate</a>
+</div>
+
+</p>
+
+</div>
+
+<div class="panel">
+<IMG SRC="img/painting of a mossy cave town with lightsin the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+A few years from now, the world may look quite different: A world &hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a mossy cave town with lightsin the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+with vast ruins and no human left on the planet.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of cave ruins with hanging vines, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+But in such a world, there will be beauty.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an underground cave settlement with wood partsin the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+And chance may have it that it will still be brimming with life.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an underground cave town with lizards, dark atmosphere, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+Some over the ground, and some under it.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an underground cave settlement with wood partsin the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+Who would have thought that what we may experience as the end &hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a mossy cave town with lizards, dark atmosphere, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+&hellip; could be considered as a beginning.</P>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of mossy castlein the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+And in such a world plays our little story.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of cave ruins with hanging vines, in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+Deep down under the vines of the forest, &hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a mossy cave town with lizards, in the style of Jean Giraud, in the style of moebius_seed_output1.png"><p class="text top-left">
+&hellip; there lived a gecko.</P>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of cave ruin covered in mossin the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+It never really left its home but was always curious about life outside.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a mossy cave town with lizards, in the style of Jean Giraud, in the style of moebius_seed_output0.png"><p class="text top-left">
+One day, it decided to search for food outside its normal territory.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an lizard underground cave, dark atmosphere, in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+As the gecko wandered the depths of an unknown cave, &hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of cave ruins with hanging vines, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+&hellip; it came near the tangling roots of a tree, &hellip;</P>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an underground cave settlement with wood partsin the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+&hellip; into a greener area.</P>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a cave covered in moss, fairy lightsin the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+The gecko saw vines hanging down from the ceiling.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a mossy cave town with lightsin the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+And it saw the light of the surface, a bright blue tone that seemed new.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a mossy cave town with lizards, in the style of Jean Giraud, in the style of moebius_seed_output2.png"><p class="text top-left">
+Stepping outside the cave for the first time &hellip;</P>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of mossy castlein the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+&hellip; was a whole new experience.</P>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of mossy castlein the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+It wandered the strange landscape, and when night approached &hellip;</P>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of cave with fireflies and mossy hanging vines, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+The gecko found a safe place below vines with tasty fireflys, &hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of cave grave with firefly and mossy ground, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+where it gazed towards the sky, hardly able to keep the eyes open.</P>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of cavern with fireflies, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+There seemed to be a nice spot covered in light, &hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of cavern with fireflies, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+the gecko experienced as it drifted into the dream world.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of cave inhabited by fireflies with vines, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+The sun was slowly rising as the gecko opened its eyes.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of rocky cave with light from the top, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+It climbed a mountain to get a better overview of the surroundings.</P>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a dark outside rocky fortress cave , in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+Only to find out that this area &hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of rocky cave with light from the top, in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+&hellip; was next to the ocean.</P> 
+</div>
+<div class="panel">
+<IMG SRC="img/painting of rocky cave with bright light, in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+The gecko headed even higher up the mountain &hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of rocky fortress under the ground , in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+&hellip; and saw an amazing rock structure.</P>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of rocky fortress, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+While approaching, the gecko asked itself: Was it inhabited?</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an lizard underground cave, dark atmosphere, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+Different kinds of rocks and noone to be seen.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an underground cave with lizards, dark atmosphere, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+Strange seemed this structure.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an underground cavein the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+  Dark and sinister, not as inviting from the inside as it seemed from
+</div>
+<div class="panel">
+<IMG SRC="img/painting of cave ruin with rocksin the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+And then, a dead end: Water.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an underground cavein the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+The gecko headed back but got lost in this maze-like structure.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a small outside hollow cavern , in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+One path after the other he took, &hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a outside hollow cavern , in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+&hellip; until he saw a bright light.</P>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a faery dust detailed underground cavern with caverns , in the style of Jean Giraud moebius_seed33_output0.png"><p class="text top-left">
+Finally: the surface.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a darkrocky fortress inside a cave , in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+The gecko seemed trapped between huge stony walls.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a cave town with wood parts, dark atmosphere, in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+But it found the way to the sky again.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a vast empty city ruin with caverns , in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+What was this place? And where were all the trees and plants?</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a vast empty city ruin with caverns , in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+And as the sun set, the gecko searched for shelter.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of castle undergroundin the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+  Unable to climb another hill, the gecko just looked for another hole to hide
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a small  desert cave with nightlife and fireflies, in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+There was something like an entrance.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a ominous firefly detailed underground cavern with rocks convered in mud, in the style of Jean Giraud moebius_seed32_output0.png"><p class="text top-left">
+Strangely illuminated by fireflies, the gecko rested in this cavern.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a ominous firefly detailed underground cavern with rocks standing in a row , in the style of Jean Giraud moebius_seed32_output0.png"><p class="text top-left">
+Dreaming of another place to see, he fell into a deep sleep.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a ominous firefly detailed underground cavern with caverns , in the style of Jean Giraud moebius_seed32_output0.png"><p class="text top-left">
+When he woke up, the sun filled the cavern with light.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a vast empty city ruin with junkyard, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+Again, the gecko travelled the whole day.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a small  desert cave with junkyard, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+The gecko traversed the empty desert.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a vast empty city ruin with castle ruins, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+And came across another strange structure.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a vast empty city ruin with rocks standing in a row , in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+As if they were from another life time.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a vast empty city ruin with vines, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+Errected by a different species, &hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a vast empty city ruin with castle ruins, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+&hellip; but now left in ruins and abandoned.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a vast empty city ruin with junkyard, in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+But something was new here: There were objects lying around.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a vast empty city ruin with junkyard, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+Then, the night approached and it was getting dark.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a vast empty city ruin with castle ruins, in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+And as the sun set, the gecko recognized towers on the horizon.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a fairy dust ruin at night with rocks standing in a row , in the style of Jean Giraud moebius_seed33_output0.png"><p class="text top-left">
+He hid between some stones because there was nothing else around.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a vast empty city ruin with bright light in a jungle, in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+When the sun was rising the next morning, the gecko discovered trees.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a vast empty city ruin with bright light in a jungle, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+  On the other side of the hill was a jungle, plentiful plants, full with life.
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a small outside jungle cave with wooden construction, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+Under the crowns of the trees, it was hard to keep track of time.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a small outside jungle cave with castle ruins, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+The gecko found its way through the jungle.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a small outside jungle cave with junkyard, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+A splendid meal awaited the gecko around every corner&hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a small outside jungle cave with junkyard, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+And the jungle was inhabited by other lizards.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a small outside jungle cave with wooden construction, in the style of Jean Giraud moebius_seed_output2.png"><p class="text top-left">
+A small settlement where the gecko could ask around and relax.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a small outside jungle cave with bright light in a jungle, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+And when the end of the day was near, &hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a small outside jungle cave with nightlife and fireflies, in the style of Jean Giraud moebius_seed_output1.png"><p class="text top-left">
+The gecko asked for shelter and slept peacefully.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an outside cave at sunset with bright light in a jungle, in the style of Jean Giraud moebius_seed33_output0.png"><p class="text top-left">
+The next morning, the sun rose over the trees.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a small outside jungle cave with caverns , in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+A local cave prove to be full of plants and vines &ndash; and food.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of a dark outside cave in a jungle with vines, in the style of Jean Giraud moebius_seed_output0.png"><p class="text top-left">
+  There was so much to see, but it was also easy to get lost in the vast
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an fairy dust jungle bayou cave with rocks convered in mud, in the style of Jean Giraud moebius_seed36_output0.png"><p class="text top-left">
+Traversing the the vegetation, the gecko found himself in another place.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an underground rocky cavern with bright light in a jungle, in the style of Jean Giraud moebius_seed36_output0.png"><p class="text top-left">
+And as night approached, he found shelter below the thicket.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an fairy dust jungle bayou cave with mossy ground, in the style of Jean Giraud moebius_seed39_output0.png"><p class="text top-left">
+The next morning, the gecko was greeted by mushroom creatures.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an fairy dust jungle bayou cave with bright light in a jungle, in the style of Jean Giraud moebius_seed39_output0.png"><p class="text top-left">
+They showed the gecko around, and it seemed that this part of the jungle &hellip;</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an underground rocky cavern with bright light in a jungle, in the style of Jean Giraud moebius_seed39_output0.png"><p class="text top-left">
+Was unlike anything the gecko could imagine.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an underground rocky cavern with nightlife and fireflies, in the style of Jean Giraud moebius_seed39_output0.png"><p class="text top-left">
+The mushroom creatures couldn't speak to the gecko.</p>
+</div>
+<div class="panel">
+<IMG SRC="img/painting of an fairy dust jungle bayou cave with nightlife and fireflies, in the style of Jean Giraud moebius_seed39_output0.png"><p class="text top-left">
+But they were friendly and inviting, kind and patient.</p>
+</div>
+<div class="panel">
+<p class="text top-left">
+To be continued...</p>
+</div>
+<div class="panel">
+<p class="text top-left">
+The End (for now)</p>
+</div>
+</div>
